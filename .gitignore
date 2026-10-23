@@ -4,5 +4,4 @@ __pycache__/
 .venv/
 Code/uds_assist.db
 Code/exports/
-*.mp4
 *.zip

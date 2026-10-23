@@ -22,7 +22,7 @@ deterministic rule engine**, **generates positive and negative test cases**, kee
 | `Model_Prompts_Config/` | `config.yaml` (model, embeddings, retrieval, paths), versioned prompts, model card |
 | `Evaluation_Results/` | Ground-truth sets, per-run metrics/CSVs/sample outputs, `EVALUATION_SUMMARY.md` |
 | `Documentation/` | Technical report (updated with measured results) and UI screenshots |
-| `Video/` | Demo video script (recording submitted separately) |
+| `Video/` | Demo video `CS5_Approach_Video_Ayan_Mujawar_123B1B196.mp4` and its script |
 | `Declarations/` | AI-tool usage and student declaration |
 
 ## Architecture
