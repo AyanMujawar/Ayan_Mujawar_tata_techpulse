@@ -1,0 +1,15 @@
+{
+  "description": "Expert scenario checklist for 10 requirements (Demo OEM spec section 7 conventions), written by the student as test engineer.",
+  "requirements": {
+    "REQ-BCM-002": ["positive", "wrong_length", "sequence_error", "unsupported_identifier"],
+    "REQ-BCM-008": ["positive", "wrong_length", "unsupported_identifier"],
+    "REQ-BCM-017": ["positive", "wrong_session", "wrong_length", "unsupported_identifier"],
+    "REQ-BCM-018": ["positive", "wrong_session", "security_locked", "wrong_length", "unsupported_identifier"],
+    "REQ-BCM-021": ["positive", "wrong_session", "security_locked", "wrong_length", "out_of_range", "unsupported_identifier"],
+    "REQ-BCM-023": ["positive", "wrong_session", "wrong_length", "out_of_range", "unsupported_identifier"],
+    "REQ-BCM-028": ["read_only_rejected", "wrong_session"],
+    "REQ-BCM-030": ["positive", "wrong_session", "wrong_length", "sequence_error", "invalid_key", "unsupported_identifier"],
+    "REQ-BCM-032": ["positive", "wrong_session", "wrong_length", "sequence_error", "unsupported_identifier"],
+    "REQ-BCM-033": ["positive", "wrong_session", "security_locked", "wrong_length", "sequence_error", "unsupported_identifier"]
+  }
+}

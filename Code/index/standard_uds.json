@@ -1,0 +1,234 @@
+[
+ {
+  "chunk_id": "STD-GEN-MSG",
+  "collection": "standard_uds",
+  "source": "standard_uds/uds_service_guide.md",
+  "title": "General message rules",
+  "text": "General message rules. Every UDS request starts with a one-byte Service Identifier (SID). A positive response\nuses the response SID, which is always the request SID plus 0x40 (for example 0x22 becomes\n0x62). A negative response is always exactly three bytes: 0x7F, the request SID, and a\nNegative Response Code (NRC), for example 7F 22 31.\n\nServices that have a sub-function carry it in the second byte. Bit 7 of the sub-function\nbyte (0x80) is the suppressPosRspMsgIndicationBit: when it is set and the request is\nsuccessful, the ECU sends no positive response. Negative responses are never suppressed\nfor physically addressed requests.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "STD-GEN-NRCORDER",
+  "collection": "standard_uds",
+  "source": "standard_uds/uds_service_guide.md",
+  "title": "NRC evaluation order",
+  "text": "NRC evaluation order. When several problems exist in one request, the ECU reports the first failing check in\nthis order:\n1. Service not supported at all -> NRC 0x11.\n2. Service not supported in the active session -> NRC 0x7F.\n3. Message shorter than the minimum length for the service -> NRC 0x13.\n4. Sub-function not supported -> NRC 0x12.\n5. Sub-function not supported in the active session -> NRC 0x7E.\n6. Identifier (DID / RID / group) not supported -> NRC 0x31.\n7. Exact length or data format wrong -> NRC 0x13.\n8. Identifier not accessible in the active session -> NRC 0x31.\n9. Security access required but not unlocked -> NRC 0x33.\n10. Wrong request sequence (for example key without seed) -> NRC 0x24.\n11. Data value outside the allowed range -> NRC 0x31.\n12. Other conditions not correct (for example vehicle speed) -> NRC 0x22.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "STD-SVC-10",
+  "collection": "standard_uds",
+  "source": "standard_uds/uds_service_guide.md",
+  "title": "Service 0x10 DiagnosticSessionControl",
+  "text": "Service 0x10 DiagnosticSessionControl. Purpose: switch the diagnostic session. Sub-functions: 0x01 defaultSession,\n0x02 programmingSession, 0x03 extendedDiagnosticSession. Request length is exactly 2 bytes\n(10 03). Positive response: 50 + sub-function + P2 server max (2 bytes, 1 ms resolution) +\nP2* server max (2 bytes, 10 ms resolution). Example: 10 03 -> 50 03 00 32 01 F4.\nChanging session always re-locks security access. Unsupported sub-function -> NRC 0x12;\nwrong length -> NRC 0x13.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "STD-SVC-11",
+  "collection": "standard_uds",
+  "source": "standard_uds/uds_service_guide.md",
+  "title": "Service 0x11 ECUReset",
+  "text": "Service 0x11 ECUReset. Purpose: reset the ECU. Sub-functions: 0x01 hardReset, 0x03 softReset. Request length is\nexactly 2 bytes. Positive response: 51 + sub-function. After a reset the ECU returns to the\ndefault session and security is locked.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "STD-SVC-14",
+  "collection": "standard_uds",
+  "source": "standard_uds/uds_service_guide.md",
+  "title": "Service 0x14 ClearDiagnosticInformation",
+  "text": "Service 0x14 ClearDiagnosticInformation. Purpose: clear stored DTCs. Request: 14 + 3-byte groupOfDTC. FF FF FF means all groups.\nRequest length is exactly 4 bytes, otherwise NRC 0x13. Unsupported group -> NRC 0x31.\nPositive response: 54 (single byte).",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "STD-SVC-19",
+  "collection": "standard_uds",
+  "source": "standard_uds/uds_service_guide.md",
+  "title": "Service 0x19 ReadDTCInformation",
+  "text": "Service 0x19 ReadDTCInformation. Purpose: read stored DTCs. Supported report types in this project: 0x01\nreportNumberOfDTCByStatusMask (request 19 01 + status mask, 3 bytes), 0x02\nreportDTCByStatusMask (19 02 + status mask, 3 bytes) and 0x0A reportSupportedDTC (19 0A,\n2 bytes). Positive response starts with 59 + report type.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "STD-SVC-22",
+  "collection": "standard_uds",
+  "source": "standard_uds/uds_service_guide.md",
+  "title": "Service 0x22 ReadDataByIdentifier",
+  "text": "Service 0x22 ReadDataByIdentifier. Purpose: read a data record identified by a 2-byte Data Identifier (DID). Request: 22 +\nDID high byte + DID low byte (3 bytes for one DID). The request length must be 1 + 2*n.\nPositive response: 62 + DID + data record whose length is defined per DID in the ECU\nextract. Unknown DID -> NRC 0x31. DID not readable in the active session -> NRC 0x31.\nDID protected and security locked -> NRC 0x33.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "STD-SVC-27",
+  "collection": "standard_uds",
+  "source": "standard_uds/uds_service_guide.md",
+  "title": "Service 0x27 SecurityAccess",
+  "text": "Service 0x27 SecurityAccess. Purpose: unlock protected services with a seed/key exchange. Odd sub-functions request a\nseed (0x01, 0x03 ...), the following even sub-function sends the key (0x02, 0x04 ...).\nRequest seed: 27 01 -> 67 01 + seed. If the level is already unlocked the seed is all\nzeros. Send key: 27 02 + key -> 67 02. Sending a key without first requesting a seed ->\nNRC 0x24 requestSequenceError. Wrong key -> NRC 0x35 invalidKey. Too many wrong keys ->\nNRC 0x36 exceededNumberOfAttempts, after which seed requests are refused with NRC 0x37\nrequiredTimeDelayNotExpired until the delay timer expires.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "STD-SVC-28",
+  "collection": "standard_uds",
+  "source": "standard_uds/uds_service_guide.md",
+  "title": "Service 0x28 CommunicationControl",
+  "text": "Service 0x28 CommunicationControl. Purpose: enable or disable normal message transmission/reception. Request: 28 +\ncontrolType + communicationType (3 bytes). controlType 0x00 enableRxAndTx, 0x01\nenableRxAndDisableTx, 0x03 disableRxAndTx. communicationType 0x01 normal messages.\nPositive response: 68 + controlType.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "STD-SVC-2E",
+  "collection": "standard_uds",
+  "source": "standard_uds/uds_service_guide.md",
+  "title": "Service 0x2E WriteDataByIdentifier",
+  "text": "Service 0x2E WriteDataByIdentifier. Purpose: write a data record. Request: 2E + DID (2 bytes) + data record. The data length\nmust match the DID length exactly, otherwise NRC 0x13. Unknown or read-only DID -> NRC\n0x31. Value outside the allowed range -> NRC 0x31. Positive response: 6E + DID (3 bytes).\nMost writable DIDs are protected by security access.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "STD-SVC-31",
+  "collection": "standard_uds",
+  "source": "standard_uds/uds_service_guide.md",
+  "title": "Service 0x31 RoutineControl",
+  "text": "Service 0x31 RoutineControl. Purpose: start, stop or request results of a routine identified by a 2-byte Routine\nIdentifier (RID). Sub-functions: 0x01 startRoutine, 0x02 stopRoutine, 0x03\nrequestRoutineResults. Minimum length 4 bytes (31 01 + RID). Unknown RID -> NRC 0x31.\nStop or results before start -> NRC 0x24. Positive response: 71 + sub-function + RID +\noptional status record.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "STD-SVC-34",
+  "collection": "standard_uds",
+  "source": "standard_uds/uds_service_guide.md",
+  "title": "Services 0x34 / 0x36 / 0x37 data download (summary)",
+  "text": "Services 0x34 / 0x36 / 0x37 data download (summary). 0x34 RequestDownload announces a download, 0x36 TransferData sends numbered blocks and\n0x37 RequestTransferExit finishes the transfer. These services are only available in the\nprogramming session with programming-level security unlocked. 0x36 or 0x37 without an\naccepted 0x34 -> NRC 0x24. Positive responses: 74, 76 + block counter, 77.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "STD-SVC-3E",
+  "collection": "standard_uds",
+  "source": "standard_uds/uds_service_guide.md",
+  "title": "Service 0x3E TesterPresent",
+  "text": "Service 0x3E TesterPresent. Purpose: keep a non-default session alive. Request: 3E 00 (2 bytes). Positive response:\n7E 00. With the suppress bit (3E 80) the ECU stays silent. If no request is received for\nthe S3 server time (typically 5 s) the ECU falls back to the default session.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "STD-SVC-85",
+  "collection": "standard_uds",
+  "source": "standard_uds/uds_service_guide.md",
+  "title": "Service 0x85 ControlDTCSetting",
+  "text": "Service 0x85 ControlDTCSetting. Purpose: stop or resume DTC status updates, for example during flashing. Sub-functions\n0x01 on and 0x02 off. Request length 2 bytes. Positive response: C5 + sub-function.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "STD-NRC-10",
+  "collection": "standard_uds",
+  "source": "standard_uds/nrc_catalogue.json",
+  "title": "NRC 0x10 generalReject",
+  "text": "Negative response code 0x10 generalReject: The ECU rejects the request for a reason not covered by a more specific code.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "STD-NRC-11",
+  "collection": "standard_uds",
+  "source": "standard_uds/nrc_catalogue.json",
+  "title": "NRC 0x11 serviceNotSupported",
+  "text": "Negative response code 0x11 serviceNotSupported: The service identifier is not implemented in this ECU.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "STD-NRC-12",
+  "collection": "standard_uds",
+  "source": "standard_uds/nrc_catalogue.json",
+  "title": "NRC 0x12 subFunctionNotSupported",
+  "text": "Negative response code 0x12 subFunctionNotSupported: The service exists but the requested sub-function does not.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "STD-NRC-13",
+  "collection": "standard_uds",
+  "source": "standard_uds/nrc_catalogue.json",
+  "title": "NRC 0x13 incorrectMessageLengthOrInvalidFormat",
+  "text": "Negative response code 0x13 incorrectMessageLengthOrInvalidFormat: The request length or structure does not match the service definition, e.g. a write with a missing data byte.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "STD-NRC-21",
+  "collection": "standard_uds",
+  "source": "standard_uds/nrc_catalogue.json",
+  "title": "NRC 0x21 busyRepeatRequest",
+  "text": "Negative response code 0x21 busyRepeatRequest: The ECU is temporarily busy; the tester should repeat the request later.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "STD-NRC-22",
+  "collection": "standard_uds",
+  "source": "standard_uds/nrc_catalogue.json",
+  "title": "NRC 0x22 conditionsNotCorrect",
+  "text": "Negative response code 0x22 conditionsNotCorrect: A precondition outside the protocol is not met, e.g. vehicle speed not zero or a forbidden session transition.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "STD-NRC-24",
+  "collection": "standard_uds",
+  "source": "standard_uds/nrc_catalogue.json",
+  "title": "NRC 0x24 requestSequenceError",
+  "text": "Negative response code 0x24 requestSequenceError: The request arrived in the wrong order, e.g. a SecurityAccess key without a preceding seed request, or a routine stop before start.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "STD-NRC-31",
+  "collection": "standard_uds",
+  "source": "standard_uds/nrc_catalogue.json",
+  "title": "NRC 0x31 requestOutOfRange",
+  "text": "Negative response code 0x31 requestOutOfRange: An identifier or parameter is not supported or out of range, e.g. an unknown DID or a write value outside limits.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "STD-NRC-33",
+  "collection": "standard_uds",
+  "source": "standard_uds/nrc_catalogue.json",
+  "title": "NRC 0x33 securityAccessDenied",
+  "text": "Negative response code 0x33 securityAccessDenied: The request needs an unlocked security level that is currently locked.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "STD-NRC-35",
+  "collection": "standard_uds",
+  "source": "standard_uds/nrc_catalogue.json",
+  "title": "NRC 0x35 invalidKey",
+  "text": "Negative response code 0x35 invalidKey: The key sent with SecurityAccess does not match the expected key for the seed.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "STD-NRC-36",
+  "collection": "standard_uds",
+  "source": "standard_uds/nrc_catalogue.json",
+  "title": "NRC 0x36 exceededNumberOfAttempts",
+  "text": "Negative response code 0x36 exceededNumberOfAttempts: Too many invalid keys were sent; the security level is blocked.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "STD-NRC-37",
+  "collection": "standard_uds",
+  "source": "standard_uds/nrc_catalogue.json",
+  "title": "NRC 0x37 requiredTimeDelayNotExpired",
+  "text": "Negative response code 0x37 requiredTimeDelayNotExpired: A new seed was requested before the lockout delay after failed attempts expired.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "STD-NRC-78",
+  "collection": "standard_uds",
+  "source": "standard_uds/nrc_catalogue.json",
+  "title": "NRC 0x78 requestCorrectlyReceivedResponsePending",
+  "text": "Negative response code 0x78 requestCorrectlyReceivedResponsePending: The ECU needs more time; the final response follows within P2* server max.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "STD-NRC-7E",
+  "collection": "standard_uds",
+  "source": "standard_uds/nrc_catalogue.json",
+  "title": "NRC 0x7E subFunctionNotSupportedInActiveSession",
+  "text": "Negative response code 0x7E subFunctionNotSupportedInActiveSession: The sub-function exists but is not allowed in the current diagnostic session.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "STD-NRC-7F",
+  "collection": "standard_uds",
+  "source": "standard_uds/nrc_catalogue.json",
+  "title": "NRC 0x7F serviceNotSupportedInActiveSession",
+  "text": "Negative response code 0x7F serviceNotSupportedInActiveSession: The service exists but is not allowed in the current diagnostic session, e.g. WriteDataByIdentifier in the default session.",
+  "version": "1.0"
+ }
+]

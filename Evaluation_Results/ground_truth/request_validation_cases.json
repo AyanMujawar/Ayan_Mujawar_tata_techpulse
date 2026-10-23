@@ -1,0 +1,25 @@
+{
+  "description": "20 request/response pairs with hand-labelled validity and the correct expected response (written from the knowledge base, independently of the code). response=null means no response.",
+  "cases": [
+    {"id": "V01", "request": "22 F1 90", "session": "default", "unlocked": [], "response": "62 F1 90 57 44 45 4D 4F 30 42 43 4D 58 31 30 30 30 30 30 31", "valid": true, "truth_expected": "62 F1 90 57 44 45 4D 4F 30 42 43 4D 58 31 30 30 30 30 30 31"},
+    {"id": "V02", "request": "22 F1 90", "session": "default", "unlocked": [], "response": "62 F1 90 57 44", "valid": false, "truth_expected": "62 F1 90 57 44 45 4D 4F 30 42 43 4D 58 31 30 30 30 30 30 31"},
+    {"id": "V03", "request": "2E 4A 10", "session": "extended", "unlocked": [1], "response": "7F 2E 13", "valid": true, "truth_expected": "7F 2E 13"},
+    {"id": "V04", "request": "2E 4A 10 00 3C", "session": "default", "unlocked": [], "response": "6E 4A 10", "valid": false, "truth_expected": "7F 2E 7F"},
+    {"id": "V05", "request": "2E 4A 10 00 3C", "session": "default", "unlocked": [], "response": "7F 2E 7F", "valid": true, "truth_expected": "7F 2E 7F"},
+    {"id": "V06", "request": "2E 4A 10 00 3C", "session": "extended", "unlocked": [], "response": "7F 2E 33", "valid": true, "truth_expected": "7F 2E 33"},
+    {"id": "V07", "request": "2E 4A 10 00 3C", "session": "extended", "unlocked": [1], "response": "6E 4A 10", "valid": true, "truth_expected": "6E 4A 10"},
+    {"id": "V08", "request": "2E 4A 10 01 F5", "session": "extended", "unlocked": [1], "response": "6E 4A 10", "valid": false, "truth_expected": "7F 2E 31"},
+    {"id": "V09", "request": "27 02 00 00 00 00", "session": "extended", "unlocked": [], "response": "7F 27 24", "valid": true, "truth_expected": "7F 27 24"},
+    {"id": "V10", "request": "27 01", "session": "default", "unlocked": [], "response": "67 01 11 22 33 44", "valid": false, "truth_expected": "7F 27 7F"},
+    {"id": "V11", "request": "10 02", "session": "default", "unlocked": [], "response": "50 02 00 32 01 F4", "valid": false, "truth_expected": "7F 10 22"},
+    {"id": "V12", "request": "10 03", "session": "default", "unlocked": [], "response": "50 03 00 32 01 F4", "valid": true, "truth_expected": "50 03 00 32 01 F4"},
+    {"id": "V13", "request": "3E 80", "session": "extended", "unlocked": [], "response": null, "valid": true, "truth_expected": "<none>"},
+    {"id": "V14", "request": "3E 00", "session": "extended", "unlocked": [], "response": "7E 00", "valid": true, "truth_expected": "7E 00"},
+    {"id": "V15", "request": "22 4A 30", "session": "default", "unlocked": [], "response": "7F 22 31", "valid": true, "truth_expected": "7F 22 31"},
+    {"id": "V16", "request": "22 4A 61", "session": "extended", "unlocked": [], "response": "62 4A 61 00", "valid": false, "truth_expected": "7F 22 33"},
+    {"id": "V17", "request": "31 03 50 01", "session": "extended", "unlocked": [], "response": "7F 31 24", "valid": true, "truth_expected": "7F 31 24"},
+    {"id": "V18", "request": "31 01 50 02", "session": "extended", "unlocked": [], "response": "71 01 50 02 00", "valid": false, "truth_expected": "7F 31 33"},
+    {"id": "V19", "request": "14 FF FF FF", "session": "default", "unlocked": [], "response": "54", "valid": true, "truth_expected": "54"},
+    {"id": "V20", "request": "23 00 00", "session": "default", "unlocked": [], "response": "7F 23 11", "valid": true, "truth_expected": "7F 23 11"}
+  ]
+}

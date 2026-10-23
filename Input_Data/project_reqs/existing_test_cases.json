@@ -1,0 +1,26 @@
+{
+  "document": "EXISTING-TESTS",
+  "description": "Previously reviewed manual test cases for BCM-X1 (synthetic). Mostly positive tests - the coverage gap the assistant should close.",
+  "tests": [
+    {"id": "TC-EX-001", "requirement": "REQ-BCM-001", "category": "positive", "steps": [["10 03", "50 03 00 32 01 F4"]], "pass": "Response matches exactly."},
+    {"id": "TC-EX-002", "requirement": "REQ-BCM-002", "category": "positive", "steps": [["10 03", "50 03 00 32 01 F4"], ["10 02", "50 02 00 32 01 F4"]], "pass": "Programming session entered from extended."},
+    {"id": "TC-EX-003", "requirement": "REQ-BCM-002", "category": "sequence_error", "steps": [["10 02", "7F 10 22"]], "pass": "Direct default->programming rejected with 0x22."},
+    {"id": "TC-EX-004", "requirement": "REQ-BCM-005", "category": "positive", "steps": [["3E 00", "7E 00"]], "pass": "TesterPresent answered."},
+    {"id": "TC-EX-005", "requirement": "REQ-BCM-006", "category": "positive", "steps": [["11 01", "51 01"]], "pass": "Reset acknowledged."},
+    {"id": "TC-EX-006", "requirement": "REQ-BCM-008", "category": "positive", "steps": [["22 F1 90", "62 F1 90 57 44 45 4D 4F 30 42 43 4D 58 31 30 30 30 30 30 31"]], "pass": "VIN returned, 17 ASCII bytes."},
+    {"id": "TC-EX-007", "requirement": "REQ-BCM-008", "category": "wrong_length", "steps": [["22 F1", "7F 22 13"]], "pass": "Truncated DID rejected."},
+    {"id": "TC-EX-008", "requirement": "REQ-BCM-009", "category": "positive", "steps": [["22 F1 87", "62 F1 87 44 4D 31 32 33 34 35 36 37 41 42"]], "pass": "Part number returned."},
+    {"id": "TC-EX-009", "requirement": "REQ-BCM-010", "category": "positive", "steps": [["22 F1 89", "62 F1 89 53 32 31 30"]], "pass": "SW version returned."},
+    {"id": "TC-EX-010", "requirement": "REQ-BCM-014", "category": "positive", "steps": [["22 4A 20", "62 4A 20 04 EC"]], "pass": "Battery voltage 12.60 V."},
+    {"id": "TC-EX-011", "requirement": "REQ-BCM-017", "category": "positive", "steps": [["10 03", "50 03 00 32 01 F4"], ["22 4A 30", "62 4A 30 00 00"]], "pass": "Lamp state readable in extended."},
+    {"id": "TC-EX-012", "requirement": "REQ-BCM-021", "category": "positive", "steps": [["10 03", "50 03 00 32 01 F4"], ["27 01", "67 01 <seed 4 bytes>"], ["27 02 <key>", "67 02"], ["2E 4A 10 00 3C", "6E 4A 10"]], "pass": "Write accepted."},
+    {"id": "TC-EX-013", "requirement": "REQ-BCM-023", "category": "positive", "steps": [["10 03", "50 03 00 32 01 F4"], ["2E 4A 12 00", "6E 4A 12"]], "pass": "Welcome light disabled."},
+    {"id": "TC-EX-014", "requirement": "REQ-BCM-029", "category": "positive", "steps": [["10 03", "50 03 00 32 01 F4"], ["27 01", "67 01 <seed>"], ["27 02 <key>", "67 02"]], "pass": "Level 1 unlocked."},
+    {"id": "TC-EX-015", "requirement": "REQ-BCM-030", "category": "sequence_error", "steps": [["10 03", "50 03 00 32 01 F4"], ["27 02 00 00 00 00", "7F 27 24"]], "pass": "Key without seed rejected."},
+    {"id": "TC-EX-016", "requirement": "REQ-BCM-032", "category": "positive", "steps": [["10 03", "50 03 00 32 01 F4"], ["31 01 50 01", "71 01 50 01 00"]], "pass": "Routine started."},
+    {"id": "TC-EX-017", "requirement": "REQ-BCM-036", "category": "positive", "steps": [["19 01 FF", "59 01 FF 01 00 03"]], "pass": "DTC count returned."},
+    {"id": "TC-EX-018", "requirement": "REQ-BCM-038", "category": "positive", "steps": [["14 FF FF FF", "54"]], "pass": "DTCs cleared."},
+    {"id": "TC-EX-019", "requirement": "REQ-BCM-039", "category": "positive", "steps": [["10 03", "50 03 00 32 01 F4"], ["85 02", "C5 02"]], "pass": "DTC setting off."},
+    {"id": "TC-EX-020", "requirement": "REQ-BCM-040", "category": "positive", "steps": [["10 03", "50 03 00 32 01 F4"], ["28 01 01", "68 01"]], "pass": "Tx disabled."}
+  ]
+}

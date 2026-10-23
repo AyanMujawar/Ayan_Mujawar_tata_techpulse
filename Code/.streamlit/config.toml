@@ -1,0 +1,10 @@
+[browser]
+gatherUsageStats = false   # privacy: no telemetry leaves the machine
+
+[server]
+address = "localhost"      # UI is only reachable from this machine
+headless = true
+
+[theme]
+base = "light"
+primaryColor = "#1F3864"

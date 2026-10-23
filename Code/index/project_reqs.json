@@ -1,0 +1,482 @@
+[
+ {
+  "chunk_id": "REQ-BCM-001",
+  "collection": "project_reqs",
+  "source": "project_reqs/diagnostic_requirements.json",
+  "title": "REQ-BCM-001 Enter extended session",
+  "text": "Requirement REQ-BCM-001 (Enter extended session): The BCM shall enter the extended diagnostic session on request 10 03 from the default session and report P2 = 50 ms and P2* = 5000 ms.",
+  "version": "1.2"
+ },
+ {
+  "chunk_id": "REQ-BCM-002",
+  "collection": "project_reqs",
+  "source": "project_reqs/diagnostic_requirements.json",
+  "title": "REQ-BCM-002 Programming session entry rule",
+  "text": "Requirement REQ-BCM-002 (Programming session entry rule): The BCM shall only enter the programming session from the extended session; a direct request from the default session shall be rejected with conditionsNotCorrect.",
+  "version": "1.2"
+ },
+ {
+  "chunk_id": "REQ-BCM-003",
+  "collection": "project_reqs",
+  "source": "project_reqs/diagnostic_requirements.json",
+  "title": "REQ-BCM-003 Return to default session",
+  "text": "Requirement REQ-BCM-003 (Return to default session): The BCM shall return to the default session on request 10 01 from any session and lock all security levels.",
+  "version": "1.2"
+ },
+ {
+  "chunk_id": "REQ-BCM-004",
+  "collection": "project_reqs",
+  "source": "project_reqs/diagnostic_requirements.json",
+  "title": "REQ-BCM-004 Session timeout",
+  "text": "Requirement REQ-BCM-004 (Session timeout): The BCM shall fall back to the default session if no diagnostic request or TesterPresent is received for 5 s while in the extended session.",
+  "version": "1.2"
+ },
+ {
+  "chunk_id": "REQ-BCM-005",
+  "collection": "project_reqs",
+  "source": "project_reqs/diagnostic_requirements.json",
+  "title": "REQ-BCM-005 TesterPresent",
+  "text": "Requirement REQ-BCM-005 (TesterPresent): The BCM shall answer TesterPresent 3E 00 with 7E 00 and shall stay silent for 3E 80.",
+  "version": "1.2"
+ },
+ {
+  "chunk_id": "REQ-BCM-006",
+  "collection": "project_reqs",
+  "source": "project_reqs/diagnostic_requirements.json",
+  "title": "REQ-BCM-006 Hard reset",
+  "text": "Requirement REQ-BCM-006 (Hard reset): The BCM shall perform a hard reset on 11 01, respond 51 01 and afterwards be in the default session.",
+  "version": "1.2"
+ },
+ {
+  "chunk_id": "REQ-BCM-007",
+  "collection": "project_reqs",
+  "source": "project_reqs/diagnostic_requirements.json",
+  "title": "REQ-BCM-007 Soft reset",
+  "text": "Requirement REQ-BCM-007 (Soft reset): The BCM shall perform a soft reset on 11 03 and respond 51 03.",
+  "version": "1.2"
+ },
+ {
+  "chunk_id": "REQ-BCM-008",
+  "collection": "project_reqs",
+  "source": "project_reqs/diagnostic_requirements.json",
+  "title": "REQ-BCM-008 Read VIN",
+  "text": "Requirement REQ-BCM-008 (Read VIN): The BCM shall provide the 17-character ASCII VIN via ReadDataByIdentifier DID 0xF190 in all sessions without security access.",
+  "version": "1.2"
+ },
+ {
+  "chunk_id": "REQ-BCM-009",
+  "collection": "project_reqs",
+  "source": "project_reqs/diagnostic_requirements.json",
+  "title": "REQ-BCM-009 Read spare part number",
+  "text": "Requirement REQ-BCM-009 (Read spare part number): The BCM shall provide the 11-byte spare part number via DID 0xF187 in all sessions.",
+  "version": "1.2"
+ },
+ {
+  "chunk_id": "REQ-BCM-010",
+  "collection": "project_reqs",
+  "source": "project_reqs/diagnostic_requirements.json",
+  "title": "REQ-BCM-010 Read software version",
+  "text": "Requirement REQ-BCM-010 (Read software version): The BCM shall provide the 4-byte ECU software version via DID 0xF189.",
+  "version": "1.2"
+ },
+ {
+  "chunk_id": "REQ-BCM-011",
+  "collection": "project_reqs",
+  "source": "project_reqs/diagnostic_requirements.json",
+  "title": "REQ-BCM-011 Read ECU serial number",
+  "text": "Requirement REQ-BCM-011 (Read ECU serial number): The BCM shall provide the 10-byte ECU serial number via DID 0xF18C.",
+  "version": "1.2"
+ },
+ {
+  "chunk_id": "REQ-BCM-012",
+  "collection": "project_reqs",
+  "source": "project_reqs/diagnostic_requirements.json",
+  "title": "REQ-BCM-012 Read hardware version",
+  "text": "Requirement REQ-BCM-012 (Read hardware version): The BCM shall provide the hardware version via DID 0xF191.",
+  "version": "1.2"
+ },
+ {
+  "chunk_id": "REQ-BCM-013",
+  "collection": "project_reqs",
+  "source": "project_reqs/diagnostic_requirements.json",
+  "title": "REQ-BCM-013 Read active session",
+  "text": "Requirement REQ-BCM-013 (Read active session): The BCM shall report the active diagnostic session via DID 0xF186.",
+  "version": "1.2"
+ },
+ {
+  "chunk_id": "REQ-BCM-014",
+  "collection": "project_reqs",
+  "source": "project_reqs/diagnostic_requirements.json",
+  "title": "REQ-BCM-014 Read battery voltage",
+  "text": "Requirement REQ-BCM-014 (Read battery voltage): The BCM shall report the battery voltage via DID 0x4A20 with 0.01 V resolution.",
+  "version": "1.2"
+ },
+ {
+  "chunk_id": "REQ-BCM-015",
+  "collection": "project_reqs",
+  "source": "project_reqs/diagnostic_requirements.json",
+  "title": "REQ-BCM-015 Read ambient temperature",
+  "text": "Requirement REQ-BCM-015 (Read ambient temperature): The BCM shall report the ambient temperature via DID 0x4A21 with an offset of -40 degC.",
+  "version": "1.2"
+ },
+ {
+  "chunk_id": "REQ-BCM-016",
+  "collection": "project_reqs",
+  "source": "project_reqs/diagnostic_requirements.json",
+  "title": "REQ-BCM-016 Read door status",
+  "text": "Requirement REQ-BCM-016 (Read door status): The BCM shall report the door open status bitfield via DID 0x4A22.",
+  "version": "1.2"
+ },
+ {
+  "chunk_id": "REQ-BCM-017",
+  "collection": "project_reqs",
+  "source": "project_reqs/diagnostic_requirements.json",
+  "title": "REQ-BCM-017 Read lamp outputs in extended session only",
+  "text": "Requirement REQ-BCM-017 (Read lamp outputs in extended session only): The BCM shall report the lamp output state via DID 0x4A30 only in the extended session.",
+  "version": "1.2"
+ },
+ {
+  "chunk_id": "REQ-BCM-018",
+  "collection": "project_reqs",
+  "source": "project_reqs/diagnostic_requirements.json",
+  "title": "REQ-BCM-018 Read immobiliser status (protected)",
+  "text": "Requirement REQ-BCM-018 (Read immobiliser status (protected)): The BCM shall report the immobiliser status via DID 0x4A61 only in the extended session with security level 1 unlocked.",
+  "version": "1.2"
+ },
+ {
+  "chunk_id": "REQ-BCM-019",
+  "collection": "project_reqs",
+  "source": "project_reqs/diagnostic_requirements.json",
+  "title": "REQ-BCM-019 Read odometer at last DTC",
+  "text": "Requirement REQ-BCM-019 (Read odometer at last DTC): The BCM shall report the odometer value at the last DTC via DID 0x4A50 in km.",
+  "version": "1.2"
+ },
+ {
+  "chunk_id": "REQ-BCM-020",
+  "collection": "project_reqs",
+  "source": "project_reqs/diagnostic_requirements.json",
+  "title": "REQ-BCM-020 Read central lock state",
+  "text": "Requirement REQ-BCM-020 (Read central lock state): The BCM shall report the central lock state via DID 0x4A31.",
+  "version": "1.2"
+ },
+ {
+  "chunk_id": "REQ-BCM-021",
+  "collection": "project_reqs",
+  "source": "project_reqs/diagnostic_requirements.json",
+  "title": "REQ-BCM-021 Write interior light timeout",
+  "text": "Requirement REQ-BCM-021 (Write interior light timeout): The BCM shall allow writing the interior light timeout DID 0x4A10 (2 bytes, 5 to 300 s) only in the extended session with security level 1 unlocked.",
+  "version": "1.2"
+ },
+ {
+  "chunk_id": "REQ-BCM-022",
+  "collection": "project_reqs",
+  "source": "project_reqs/diagnostic_requirements.json",
+  "title": "REQ-BCM-022 Write auto-lock speed",
+  "text": "Requirement REQ-BCM-022 (Write auto-lock speed): The BCM shall allow writing the auto-lock speed threshold DID 0x4A11 (5 to 50 km/h) in the extended session with security level 1.",
+  "version": "1.2"
+ },
+ {
+  "chunk_id": "REQ-BCM-023",
+  "collection": "project_reqs",
+  "source": "project_reqs/diagnostic_requirements.json",
+  "title": "REQ-BCM-023 Write welcome light enable",
+  "text": "Requirement REQ-BCM-023 (Write welcome light enable): The BCM shall allow enabling or disabling the welcome light via DID 0x4A12 in the extended session without security access.",
+  "version": "1.2"
+ },
+ {
+  "chunk_id": "REQ-BCM-024",
+  "collection": "project_reqs",
+  "source": "project_reqs/diagnostic_requirements.json",
+  "title": "REQ-BCM-024 Write rear wiper interval",
+  "text": "Requirement REQ-BCM-024 (Write rear wiper interval): The BCM shall allow writing the rear wiper interval DID 0x4A13 (2 to 20 s) in the extended session.",
+  "version": "1.2"
+ },
+ {
+  "chunk_id": "REQ-BCM-025",
+  "collection": "project_reqs",
+  "source": "project_reqs/diagnostic_requirements.json",
+  "title": "REQ-BCM-025 Write variant coding",
+  "text": "Requirement REQ-BCM-025 (Write variant coding): The BCM shall accept 4-byte variant coding via DID 0x4A40 only in the extended session with security level 1.",
+  "version": "1.2"
+ },
+ {
+  "chunk_id": "REQ-BCM-026",
+  "collection": "project_reqs",
+  "source": "project_reqs/diagnostic_requirements.json",
+  "title": "REQ-BCM-026 Write market region",
+  "text": "Requirement REQ-BCM-026 (Write market region): The BCM shall accept the market region DID 0x4A41 values 0 to 4 in the extended session with security level 1.",
+  "version": "1.2"
+ },
+ {
+  "chunk_id": "REQ-BCM-027",
+  "collection": "project_reqs",
+  "source": "project_reqs/diagnostic_requirements.json",
+  "title": "REQ-BCM-027 Write crash unlock enable",
+  "text": "Requirement REQ-BCM-027 (Write crash unlock enable): The BCM shall allow configuring crash unlock via DID 0x4A51 (0 or 1) with security level 1.",
+  "version": "1.2"
+ },
+ {
+  "chunk_id": "REQ-BCM-028",
+  "collection": "project_reqs",
+  "source": "project_reqs/diagnostic_requirements.json",
+  "title": "REQ-BCM-028 VIN is read-only",
+  "text": "Requirement REQ-BCM-028 (VIN is read-only): The BCM shall reject any attempt to write the VIN DID 0xF190.",
+  "version": "1.2"
+ },
+ {
+  "chunk_id": "REQ-BCM-029",
+  "collection": "project_reqs",
+  "source": "project_reqs/diagnostic_requirements.json",
+  "title": "REQ-BCM-029 Security level 1 unlock",
+  "text": "Requirement REQ-BCM-029 (Security level 1 unlock): The BCM shall grant security level 1 in the extended session after a valid seed/key exchange 27 01 / 27 02.",
+  "version": "1.2"
+ },
+ {
+  "chunk_id": "REQ-BCM-030",
+  "collection": "project_reqs",
+  "source": "project_reqs/diagnostic_requirements.json",
+  "title": "REQ-BCM-030 Security key sequence",
+  "text": "Requirement REQ-BCM-030 (Security key sequence): The BCM shall reject a SecurityAccess key that is not preceded by a seed request with requestSequenceError.",
+  "version": "1.2"
+ },
+ {
+  "chunk_id": "REQ-BCM-031",
+  "collection": "project_reqs",
+  "source": "project_reqs/diagnostic_requirements.json",
+  "title": "REQ-BCM-031 Security lockout",
+  "text": "Requirement REQ-BCM-031 (Security lockout): The BCM shall block security level 1 after 3 invalid keys and refuse new seeds for 10 s.",
+  "version": "1.2"
+ },
+ {
+  "chunk_id": "REQ-BCM-032",
+  "collection": "project_reqs",
+  "source": "project_reqs/diagnostic_requirements.json",
+  "title": "REQ-BCM-032 Lamp self-test routine",
+  "text": "Requirement REQ-BCM-032 (Lamp self-test routine): The BCM shall run the lamp self-test routine RID 0x5001 on start, support stop and report results, in the extended session.",
+  "version": "1.2"
+ },
+ {
+  "chunk_id": "REQ-BCM-033",
+  "collection": "project_reqs",
+  "source": "project_reqs/diagnostic_requirements.json",
+  "title": "REQ-BCM-033 Door lock actuator test",
+  "text": "Requirement REQ-BCM-033 (Door lock actuator test): The BCM shall run the door lock actuator test RID 0x5002 only in the extended session with security level 1.",
+  "version": "1.2"
+ },
+ {
+  "chunk_id": "REQ-BCM-034",
+  "collection": "project_reqs",
+  "source": "project_reqs/diagnostic_requirements.json",
+  "title": "REQ-BCM-034 Reset learned key fobs",
+  "text": "Requirement REQ-BCM-034 (Reset learned key fobs): The BCM shall reset the learned key fobs via RID 0x5003 start only, with security level 1.",
+  "version": "1.2"
+ },
+ {
+  "chunk_id": "REQ-BCM-035",
+  "collection": "project_reqs",
+  "source": "project_reqs/diagnostic_requirements.json",
+  "title": "REQ-BCM-035 Check programming preconditions",
+  "text": "Requirement REQ-BCM-035 (Check programming preconditions): The BCM shall evaluate programming preconditions via RID 0x0203 in the programming session.",
+  "version": "1.2"
+ },
+ {
+  "chunk_id": "REQ-BCM-036",
+  "collection": "project_reqs",
+  "source": "project_reqs/diagnostic_requirements.json",
+  "title": "REQ-BCM-036 Read DTC count",
+  "text": "Requirement REQ-BCM-036 (Read DTC count): The BCM shall report the number of DTCs matching a status mask via 19 01.",
+  "version": "1.2"
+ },
+ {
+  "chunk_id": "REQ-BCM-037",
+  "collection": "project_reqs",
+  "source": "project_reqs/diagnostic_requirements.json",
+  "title": "REQ-BCM-037 Read DTCs by status",
+  "text": "Requirement REQ-BCM-037 (Read DTCs by status): The BCM shall report all DTCs matching a status mask via 19 02.",
+  "version": "1.2"
+ },
+ {
+  "chunk_id": "REQ-BCM-038",
+  "collection": "project_reqs",
+  "source": "project_reqs/diagnostic_requirements.json",
+  "title": "REQ-BCM-038 Clear all DTCs",
+  "text": "Requirement REQ-BCM-038 (Clear all DTCs): The BCM shall clear all DTCs on 14 FF FF FF in the default and extended sessions.",
+  "version": "1.2"
+ },
+ {
+  "chunk_id": "REQ-BCM-039",
+  "collection": "project_reqs",
+  "source": "project_reqs/diagnostic_requirements.json",
+  "title": "REQ-BCM-039 Disable DTC setting",
+  "text": "Requirement REQ-BCM-039 (Disable DTC setting): The BCM shall stop DTC status updates on 85 02 and resume on 85 01, only in the extended session.",
+  "version": "1.2"
+ },
+ {
+  "chunk_id": "REQ-BCM-040",
+  "collection": "project_reqs",
+  "source": "project_reqs/diagnostic_requirements.json",
+  "title": "REQ-BCM-040 Communication control",
+  "text": "Requirement REQ-BCM-040 (Communication control): The BCM shall disable normal message transmission on 28 01 01 in the extended session.",
+  "version": "1.2"
+ },
+ {
+  "chunk_id": "TC-EX-001",
+  "collection": "project_reqs",
+  "source": "project_reqs/existing_test_cases.json",
+  "title": "TC-EX-001 for REQ-BCM-001",
+  "text": "Reviewed test TC-EX-001 for REQ-BCM-001, category positive: send 10 03 expect 50 03 00 32 01 F4. Pass: Response matches exactly.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "TC-EX-002",
+  "collection": "project_reqs",
+  "source": "project_reqs/existing_test_cases.json",
+  "title": "TC-EX-002 for REQ-BCM-002",
+  "text": "Reviewed test TC-EX-002 for REQ-BCM-002, category positive: send 10 03 expect 50 03 00 32 01 F4; send 10 02 expect 50 02 00 32 01 F4. Pass: Programming session entered from extended.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "TC-EX-003",
+  "collection": "project_reqs",
+  "source": "project_reqs/existing_test_cases.json",
+  "title": "TC-EX-003 for REQ-BCM-002",
+  "text": "Reviewed test TC-EX-003 for REQ-BCM-002, category sequence_error: send 10 02 expect 7F 10 22. Pass: Direct default->programming rejected with 0x22.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "TC-EX-004",
+  "collection": "project_reqs",
+  "source": "project_reqs/existing_test_cases.json",
+  "title": "TC-EX-004 for REQ-BCM-005",
+  "text": "Reviewed test TC-EX-004 for REQ-BCM-005, category positive: send 3E 00 expect 7E 00. Pass: TesterPresent answered.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "TC-EX-005",
+  "collection": "project_reqs",
+  "source": "project_reqs/existing_test_cases.json",
+  "title": "TC-EX-005 for REQ-BCM-006",
+  "text": "Reviewed test TC-EX-005 for REQ-BCM-006, category positive: send 11 01 expect 51 01. Pass: Reset acknowledged.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "TC-EX-006",
+  "collection": "project_reqs",
+  "source": "project_reqs/existing_test_cases.json",
+  "title": "TC-EX-006 for REQ-BCM-008",
+  "text": "Reviewed test TC-EX-006 for REQ-BCM-008, category positive: send 22 F1 90 expect 62 F1 90 57 44 45 4D 4F 30 42 43 4D 58 31 30 30 30 30 30 31. Pass: VIN returned, 17 ASCII bytes.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "TC-EX-007",
+  "collection": "project_reqs",
+  "source": "project_reqs/existing_test_cases.json",
+  "title": "TC-EX-007 for REQ-BCM-008",
+  "text": "Reviewed test TC-EX-007 for REQ-BCM-008, category wrong_length: send 22 F1 expect 7F 22 13. Pass: Truncated DID rejected.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "TC-EX-008",
+  "collection": "project_reqs",
+  "source": "project_reqs/existing_test_cases.json",
+  "title": "TC-EX-008 for REQ-BCM-009",
+  "text": "Reviewed test TC-EX-008 for REQ-BCM-009, category positive: send 22 F1 87 expect 62 F1 87 44 4D 31 32 33 34 35 36 37 41 42. Pass: Part number returned.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "TC-EX-009",
+  "collection": "project_reqs",
+  "source": "project_reqs/existing_test_cases.json",
+  "title": "TC-EX-009 for REQ-BCM-010",
+  "text": "Reviewed test TC-EX-009 for REQ-BCM-010, category positive: send 22 F1 89 expect 62 F1 89 53 32 31 30. Pass: SW version returned.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "TC-EX-010",
+  "collection": "project_reqs",
+  "source": "project_reqs/existing_test_cases.json",
+  "title": "TC-EX-010 for REQ-BCM-014",
+  "text": "Reviewed test TC-EX-010 for REQ-BCM-014, category positive: send 22 4A 20 expect 62 4A 20 04 EC. Pass: Battery voltage 12.60 V.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "TC-EX-011",
+  "collection": "project_reqs",
+  "source": "project_reqs/existing_test_cases.json",
+  "title": "TC-EX-011 for REQ-BCM-017",
+  "text": "Reviewed test TC-EX-011 for REQ-BCM-017, category positive: send 10 03 expect 50 03 00 32 01 F4; send 22 4A 30 expect 62 4A 30 00 00. Pass: Lamp state readable in extended.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "TC-EX-012",
+  "collection": "project_reqs",
+  "source": "project_reqs/existing_test_cases.json",
+  "title": "TC-EX-012 for REQ-BCM-021",
+  "text": "Reviewed test TC-EX-012 for REQ-BCM-021, category positive: send 10 03 expect 50 03 00 32 01 F4; send 27 01 expect 67 01 <seed 4 bytes>; send 27 02 <key> expect 67 02; send 2E 4A 10 00 3C expect 6E 4A 10. Pass: Write accepted.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "TC-EX-013",
+  "collection": "project_reqs",
+  "source": "project_reqs/existing_test_cases.json",
+  "title": "TC-EX-013 for REQ-BCM-023",
+  "text": "Reviewed test TC-EX-013 for REQ-BCM-023, category positive: send 10 03 expect 50 03 00 32 01 F4; send 2E 4A 12 00 expect 6E 4A 12. Pass: Welcome light disabled.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "TC-EX-014",
+  "collection": "project_reqs",
+  "source": "project_reqs/existing_test_cases.json",
+  "title": "TC-EX-014 for REQ-BCM-029",
+  "text": "Reviewed test TC-EX-014 for REQ-BCM-029, category positive: send 10 03 expect 50 03 00 32 01 F4; send 27 01 expect 67 01 <seed>; send 27 02 <key> expect 67 02. Pass: Level 1 unlocked.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "TC-EX-015",
+  "collection": "project_reqs",
+  "source": "project_reqs/existing_test_cases.json",
+  "title": "TC-EX-015 for REQ-BCM-030",
+  "text": "Reviewed test TC-EX-015 for REQ-BCM-030, category sequence_error: send 10 03 expect 50 03 00 32 01 F4; send 27 02 00 00 00 00 expect 7F 27 24. Pass: Key without seed rejected.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "TC-EX-016",
+  "collection": "project_reqs",
+  "source": "project_reqs/existing_test_cases.json",
+  "title": "TC-EX-016 for REQ-BCM-032",
+  "text": "Reviewed test TC-EX-016 for REQ-BCM-032, category positive: send 10 03 expect 50 03 00 32 01 F4; send 31 01 50 01 expect 71 01 50 01 00. Pass: Routine started.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "TC-EX-017",
+  "collection": "project_reqs",
+  "source": "project_reqs/existing_test_cases.json",
+  "title": "TC-EX-017 for REQ-BCM-036",
+  "text": "Reviewed test TC-EX-017 for REQ-BCM-036, category positive: send 19 01 FF expect 59 01 FF 01 00 03. Pass: DTC count returned.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "TC-EX-018",
+  "collection": "project_reqs",
+  "source": "project_reqs/existing_test_cases.json",
+  "title": "TC-EX-018 for REQ-BCM-038",
+  "text": "Reviewed test TC-EX-018 for REQ-BCM-038, category positive: send 14 FF FF FF expect 54. Pass: DTCs cleared.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "TC-EX-019",
+  "collection": "project_reqs",
+  "source": "project_reqs/existing_test_cases.json",
+  "title": "TC-EX-019 for REQ-BCM-039",
+  "text": "Reviewed test TC-EX-019 for REQ-BCM-039, category positive: send 10 03 expect 50 03 00 32 01 F4; send 85 02 expect C5 02. Pass: DTC setting off.",
+  "version": "1.0"
+ },
+ {
+  "chunk_id": "TC-EX-020",
+  "collection": "project_reqs",
+  "source": "project_reqs/existing_test_cases.json",
+  "title": "TC-EX-020 for REQ-BCM-040",
+  "text": "Reviewed test TC-EX-020 for REQ-BCM-040, category positive: send 10 03 expect 50 03 00 32 01 F4; send 28 01 01 expect 68 01. Pass: Tx disabled.",
+  "version": "1.0"
+ }
+]

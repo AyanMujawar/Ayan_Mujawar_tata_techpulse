@@ -1,0 +1,434 @@
+[
+ {
+  "chunk_id": "ECU-SESSIONS",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "BCM-X1 diagnostic sessions",
+  "text": "BCM-X1 sessions: 0x01 default - Active after power-up and after any ECU reset.; 0x02 programming - Used for flashing; only reachable from the extended session (Demo OEM rule).; 0x03 extended - Used for configuration, routines and protected writes.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-SEC-L1",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "BCM-X1 security level 1",
+  "text": "BCM-X1 SecurityAccess level 1: seed request sub-function 0x01, send key sub-function 0x02, available in extended session, seed and key 4 bytes, maximum 3 invalid keys then 10 s lockout.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-SEC-L3",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "BCM-X1 security level 3",
+  "text": "BCM-X1 SecurityAccess level 3: seed request sub-function 0x03, send key sub-function 0x04, available in programming session, seed and key 4 bytes, maximum 3 invalid keys then 10 s lockout.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-SVC-10",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "BCM-X1 service 0x10 DiagnosticSessionControl",
+  "text": "BCM-X1 supports service 0x10 DiagnosticSessionControl in sessions: default, programming, extended. Sub-functions: 0x01, 0x02, 0x03.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-SVC-11",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "BCM-X1 service 0x11 ECUReset",
+  "text": "BCM-X1 supports service 0x11 ECUReset in sessions: default, programming, extended. Sub-functions: 0x01, 0x03.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-SVC-14",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "BCM-X1 service 0x14 ClearDiagnosticInformation",
+  "text": "BCM-X1 supports service 0x14 ClearDiagnosticInformation in sessions: default, extended. Supported DTC groups: 0xFFFFFF, 0x9A0000.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-SVC-19",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "BCM-X1 service 0x19 ReadDTCInformation",
+  "text": "BCM-X1 supports service 0x19 ReadDTCInformation in sessions: default, extended. Sub-functions: 0x01, 0x02, 0x0A.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-SVC-22",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "BCM-X1 service 0x22 ReadDataByIdentifier",
+  "text": "BCM-X1 supports service 0x22 ReadDataByIdentifier in sessions: default, programming, extended.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-SVC-27",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "BCM-X1 service 0x27 SecurityAccess",
+  "text": "BCM-X1 supports service 0x27 SecurityAccess in sessions: programming, extended. Sub-functions: 0x01, 0x02, 0x03, 0x04.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-SVC-28",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "BCM-X1 service 0x28 CommunicationControl",
+  "text": "BCM-X1 supports service 0x28 CommunicationControl in sessions: extended. Sub-functions: 0x00, 0x01, 0x03.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-SVC-2E",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "BCM-X1 service 0x2E WriteDataByIdentifier",
+  "text": "BCM-X1 supports service 0x2E WriteDataByIdentifier in sessions: programming, extended.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-SVC-31",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "BCM-X1 service 0x31 RoutineControl",
+  "text": "BCM-X1 supports service 0x31 RoutineControl in sessions: programming, extended. Sub-functions: 0x01, 0x02, 0x03.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-SVC-34",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "BCM-X1 service 0x34 RequestDownload",
+  "text": "BCM-X1 supports service 0x34 RequestDownload in sessions: programming. Requires security level 3.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-SVC-36",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "BCM-X1 service 0x36 TransferData",
+  "text": "BCM-X1 supports service 0x36 TransferData in sessions: programming. Requires security level 3.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-SVC-37",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "BCM-X1 service 0x37 RequestTransferExit",
+  "text": "BCM-X1 supports service 0x37 RequestTransferExit in sessions: programming. Requires security level 3.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-SVC-3E",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "BCM-X1 service 0x3E TesterPresent",
+  "text": "BCM-X1 supports service 0x3E TesterPresent in sessions: default, programming, extended. Sub-functions: 0x00.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-SVC-85",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "BCM-X1 service 0x85 ControlDTCSetting",
+  "text": "BCM-X1 supports service 0x85 ControlDTCSetting in sessions: extended. Sub-functions: 0x01, 0x02.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-SVC-LIST",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "BCM-X1 supported services",
+  "text": "Services implemented by BCM-X1: 0x10 DiagnosticSessionControl, 0x11 ECUReset, 0x14 ClearDiagnosticInformation, 0x19 ReadDTCInformation, 0x22 ReadDataByIdentifier, 0x27 SecurityAccess, 0x28 CommunicationControl, 0x2E WriteDataByIdentifier, 0x31 RoutineControl, 0x34 RequestDownload, 0x36 TransferData, 0x37 RequestTransferExit, 0x3E TesterPresent, 0x85 ControlDTCSetting. Any other service identifier is answered with NRC 0x11 serviceNotSupported.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-DID-F186",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "DID 0xF186 activeDiagnosticSession",
+  "text": "BCM-X1 DID 0xF186 activeDiagnosticSession - active diagnostic session: length 1 byte(s), access read-only, encoding uint, readable in default, programming, extended session(s). Note: Returns the current session id (dynamic).. Bench default value: 1.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-DID-F187",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "DID 0xF187 sparePartNumber",
+  "text": "BCM-X1 DID 0xF187 sparePartNumber - spare part number: length 11 byte(s), access read-only, encoding ascii, readable in default, programming, extended session(s). Bench default value: DM1234567AB.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-DID-F189",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "DID 0xF189 ecuSoftwareVersion",
+  "text": "BCM-X1 DID 0xF189 ecuSoftwareVersion - ecu software version: length 4 byte(s), access read-only, encoding ascii, readable in default, programming, extended session(s). Bench default value: S210.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-DID-F18A",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "DID 0xF18A systemSupplierIdentifier",
+  "text": "BCM-X1 DID 0xF18A systemSupplierIdentifier - system supplier identifier: length 6 byte(s), access read-only, encoding ascii, readable in default, programming, extended session(s). Bench default value: DEMOSP.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-DID-F18C",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "DID 0xF18C ecuSerialNumber",
+  "text": "BCM-X1 DID 0xF18C ecuSerialNumber - ecu serial number (serial number): length 10 byte(s), access read-only, encoding ascii, readable in default, programming, extended session(s). Bench default value: BX10004711.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-DID-F190",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "DID 0xF190 vehicleIdentificationNumber",
+  "text": "BCM-X1 DID 0xF190 vehicleIdentificationNumber - vehicle identification number (VIN): length 17 byte(s), access read-only, encoding ascii, readable in default, programming, extended session(s). Bench default value: WDEMO0BCMX1000001.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-DID-F191",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "DID 0xF191 ecuHardwareVersion",
+  "text": "BCM-X1 DID 0xF191 ecuHardwareVersion - ecu hardware version: length 4 byte(s), access read-only, encoding ascii, readable in default, programming, extended session(s). Bench default value: H030.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-DID-F195",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "DID 0xF195 supplierSoftwareVersion",
+  "text": "BCM-X1 DID 0xF195 supplierSoftwareVersion - supplier software version: length 4 byte(s), access read-only, encoding ascii, readable in default, programming, extended session(s). Bench default value: V112.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-DID-F197",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "DID 0xF197 systemName",
+  "text": "BCM-X1 DID 0xF197 systemName - system name: length 8 byte(s), access read-only, encoding ascii, readable in default, programming, extended session(s). Bench default value: BCMX1BDY.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-DID-F199",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "DID 0xF199 programmingDate",
+  "text": "BCM-X1 DID 0xF199 programmingDate - programming date: length 4 byte(s), access read/write, encoding bcd, readable in default, programming, extended session(s). Writable in programming session with security level 3. Note: YYYYMMDD in BCD.. Bench default value: 20260901.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-DID-F1A0",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "DID 0xF1A0 calibrationIdentifier",
+  "text": "BCM-X1 DID 0xF1A0 calibrationIdentifier - calibration identifier: length 8 byte(s), access read-only, encoding ascii, readable in default, programming, extended session(s). Bench default value: CAL00042.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-DID-4A10",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "DID 0x4A10 interiorLightTimeout",
+  "text": "BCM-X1 DID 0x4A10 interiorLightTimeout - interior light timeout: length 2 byte(s), access read/write, encoding uint, readable in default, extended session(s). Writable in extended session with security level 1. Allowed range 5 to 300 s. Bench default value: 60.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-DID-4A11",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "DID 0x4A11 autoLockSpeedThreshold",
+  "text": "BCM-X1 DID 0x4A11 autoLockSpeedThreshold - auto lock speed threshold: length 1 byte(s), access read/write, encoding uint, readable in default, extended session(s). Writable in extended session with security level 1. Allowed range 5 to 50 km/h. Bench default value: 15.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-DID-4A12",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "DID 0x4A12 welcomeLightEnable",
+  "text": "BCM-X1 DID 0x4A12 welcomeLightEnable - welcome light enable: length 1 byte(s), access read/write, encoding enum, readable in default, extended session(s). Writable in extended session with no security access. Allowed range 0 to 1. Values: 0=disabled, 1=enabled. Bench default value: 1.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-DID-4A13",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "DID 0x4A13 rearWiperInterval",
+  "text": "BCM-X1 DID 0x4A13 rearWiperInterval - rear wiper interval: length 1 byte(s), access read/write, encoding uint, readable in default, extended session(s). Writable in extended session with no security access. Allowed range 2 to 20 s. Bench default value: 8.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-DID-4A20",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "DID 0x4A20 batteryVoltage",
+  "text": "BCM-X1 DID 0x4A20 batteryVoltage - battery voltage: length 2 byte(s), access read-only, encoding uint, readable in default, extended session(s). Scaling: 0.01 V per bit. Bench default value: 1260.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-DID-4A21",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "DID 0x4A21 ambientTemperature",
+  "text": "BCM-X1 DID 0x4A21 ambientTemperature - ambient temperature: length 1 byte(s), access read-only, encoding uint, readable in default, extended session(s). Scaling: 1 degC per bit, offset -40. Bench default value: 62.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-DID-4A22",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "DID 0x4A22 doorStatus",
+  "text": "BCM-X1 DID 0x4A22 doorStatus - door status: length 1 byte(s), access read-only, encoding bitfield, readable in default, extended session(s). Values: bit0=driver door open, bit1=passenger door open, bit2=rear left open, bit3=rear right open, bit4=tailgate open. Bench default value: 0.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-DID-4A23",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "DID 0x4A23 ignitionState",
+  "text": "BCM-X1 DID 0x4A23 ignitionState - ignition state: length 1 byte(s), access read-only, encoding enum, readable in default, extended session(s). Values: 0=off, 1=accessory, 2=on, 3=crank. Bench default value: 2.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-DID-4A30",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "DID 0x4A30 lampOutputState",
+  "text": "BCM-X1 DID 0x4A30 lampOutputState - lamp output state: length 2 byte(s), access read-only, encoding bitfield, readable in extended session(s). Note: Only readable in the extended session.. Bench default value: 0.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-DID-4A31",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "DID 0x4A31 centralLockState",
+  "text": "BCM-X1 DID 0x4A31 centralLockState - central lock state: length 1 byte(s), access read-only, encoding enum, readable in default, extended session(s). Values: 0=unlocked, 1=locked, 2=double locked. Bench default value: 1.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-DID-4A40",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "DID 0x4A40 variantCoding",
+  "text": "BCM-X1 DID 0x4A40 variantCoding - variant coding: length 4 byte(s), access read/write, encoding raw, readable in extended session(s). Writable in extended session with security level 1. Bench default value: 0102000F.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-DID-4A41",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "DID 0x4A41 marketRegion",
+  "text": "BCM-X1 DID 0x4A41 marketRegion - market region: length 1 byte(s), access read/write, encoding enum, readable in default, extended session(s). Writable in extended session with security level 1. Allowed range 0 to 4. Values: 0=EU, 1=India, 2=North America, 3=China, 4=Rest of world. Bench default value: 1.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-DID-4A50",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "DID 0x4A50 odometerAtLastDtc",
+  "text": "BCM-X1 DID 0x4A50 odometerAtLastDtc - odometer at last dtc: length 3 byte(s), access read-only, encoding uint, readable in default, extended session(s). Unit: km. Bench default value: 12345.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-DID-4A51",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "DID 0x4A51 crashUnlockEnable",
+  "text": "BCM-X1 DID 0x4A51 crashUnlockEnable - crash unlock enable: length 1 byte(s), access read/write, encoding enum, readable in default, extended session(s). Writable in extended session with security level 1. Allowed range 0 to 1. Bench default value: 1.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-DID-4A60",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "DID 0x4A60 learnedKeyFobCount",
+  "text": "BCM-X1 DID 0x4A60 learnedKeyFobCount - learned key fob count: length 1 byte(s), access read-only, encoding uint, readable in default, extended session(s). Bench default value: 2.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-DID-4A61",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "DID 0x4A61 immobiliserStatus",
+  "text": "BCM-X1 DID 0x4A61 immobiliserStatus - immobiliser status: length 1 byte(s), access read-only, encoding enum, readable in extended session(s). Reading requires security level 1. Note: Reading requires extended session and security level 1.. Values: 0=armed, 1=disarmed. Bench default value: 0.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-DID-LIST",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "BCM-X1 DID list",
+  "text": "Complete list of data identifiers in the approved BCM-X1 extract: 0xF186 activeDiagnosticSession, 0xF187 sparePartNumber, 0xF189 ecuSoftwareVersion, 0xF18A systemSupplierIdentifier, 0xF18C ecuSerialNumber, 0xF190 vehicleIdentificationNumber, 0xF191 ecuHardwareVersion, 0xF195 supplierSoftwareVersion, 0xF197 systemName, 0xF199 programmingDate, 0xF1A0 calibrationIdentifier, 0x4A10 interiorLightTimeout, 0x4A11 autoLockSpeedThreshold, 0x4A12 welcomeLightEnable, 0x4A13 rearWiperInterval, 0x4A20 batteryVoltage, 0x4A21 ambientTemperature, 0x4A22 doorStatus, 0x4A23 ignitionState, 0x4A30 lampOutputState, 0x4A31 centralLockState, 0x4A40 variantCoding, 0x4A41 marketRegion, 0x4A50 odometerAtLastDtc, 0x4A51 crashUnlockEnable, 0x4A60 learnedKeyFobCount, 0x4A61 immobiliserStatus. Any DID not in this list is unsupported and answered with NRC 0x31 requestOutOfRange.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-RID-0203",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "RID 0x0203 checkProgrammingPreconditions",
+  "text": "BCM-X1 routine 0x0203 checkProgrammingPreconditions: runs in programming session with no security access; supported routine control types 0x01, 0x03; result record 00. Result 00 = preconditions OK.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-RID-FF00",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "RID 0xFF00 eraseMemory",
+  "text": "BCM-X1 routine 0xFF00 eraseMemory: runs in programming session with security level 3; supported routine control types 0x01, 0x03; result record 00. ",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-RID-FF01",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "RID 0xFF01 checkProgrammingDependencies",
+  "text": "BCM-X1 routine 0xFF01 checkProgrammingDependencies: runs in programming session with security level 3; supported routine control types 0x01, 0x03; result record 00. ",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-RID-5001",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "RID 0x5001 lampSelfTest",
+  "text": "BCM-X1 routine 0x5001 lampSelfTest: runs in extended session with no security access; supported routine control types 0x01, 0x02, 0x03; result record 00. Cycles all exterior lamps; bench only.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-RID-5002",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "RID 0x5002 doorLockActuatorTest",
+  "text": "BCM-X1 routine 0x5002 doorLockActuatorTest: runs in extended session with security level 1; supported routine control types 0x01, 0x02, 0x03; result record 00. Actuates all door locks; bench only.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-RID-5003",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "RID 0x5003 resetLearnedKeyFobs",
+  "text": "BCM-X1 routine 0x5003 resetLearnedKeyFobs: runs in extended session with security level 1; supported routine control types 0x01; result record 00. ",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-RID-LIST",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "BCM-X1 RID list",
+  "text": "Routine identifiers in the approved BCM-X1 extract: 0x0203 checkProgrammingPreconditions, 0xFF00 eraseMemory, 0xFF01 checkProgrammingDependencies, 0x5001 lampSelfTest, 0x5002 doorLockActuatorTest, 0x5003 resetLearnedKeyFobs. Any other RID is answered with NRC 0x31.",
+  "version": "1.4"
+ },
+ {
+  "chunk_id": "ECU-DTC-LIST",
+  "collection": "ecu_extract",
+  "source": "ecu_extract/bcm_x1_ecu_extract.json",
+  "title": "BCM-X1 bench DTCs",
+  "text": "DTCs stored on the BCM-X1 bench ECU: 0x9A1011 Interior lamp circuit short to ground status 0x09; 0x9A2012 Driver door lock actuator open circuit status 0x08; 0xC14087 Lost communication with gateway status 0x2F. DTCStatusAvailabilityMask is 0xFF and the DTC format identifier is 0x01.",
+  "version": "1.4"
+ }
+]

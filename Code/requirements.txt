@@ -1,0 +1,16 @@
+# Install CPU torch first:  pip install torch --index-url https://download.pytorch.org/whl/cpu
+# Versions used for the submitted evaluation run (Python 3.13, Windows 11)
+sentence-transformers==6.2.0
+faiss-cpu==1.15.1
+rank_bm25==0.2.2
+fastapi
+uvicorn[standard]
+streamlit
+jinja2
+pydantic>=2
+pyyaml
+requests
+pandas
+pytest
+# Only needed to RUN exported test scripts on a bench (not needed by the assistant):
+# python-can can-isotp udsoncan

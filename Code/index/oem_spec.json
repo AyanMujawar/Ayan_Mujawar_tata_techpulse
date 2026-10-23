@@ -1,0 +1,66 @@
+[
+ {
+  "chunk_id": "OEM-SPEC-1",
+  "collection": "oem_spec",
+  "source": "oem_spec/demo_oem_diagnostic_spec.md",
+  "title": "Demo OEM 1 Addressing and transport",
+  "text": "Demo OEM specification section 1 Addressing and transport. Diagnostics use ISO-TP on classical CAN at 500 kbit/s. Physical request CAN ID 0x7A0,\nphysical response CAN ID 0x7A8, functional request CAN ID 0x7DF. All test cases in this\nproject use physical addressing unless stated otherwise.",
+  "version": "2.1"
+ },
+ {
+  "chunk_id": "OEM-SPEC-2",
+  "collection": "oem_spec",
+  "source": "oem_spec/demo_oem_diagnostic_spec.md",
+  "title": "Demo OEM 2 Session timing",
+  "text": "Demo OEM specification section 2 Session timing. P2 server max is 50 ms and is reported as 00 32 in the DiagnosticSessionControl positive\nresponse. P2* server max is 5000 ms and is reported as 01 F4 (10 ms resolution). The S3\nserver timeout is 5000 ms: a tester must send TesterPresent (3E 00 or 3E 80) at least\nevery 2000 ms to keep the extended or programming session active.",
+  "version": "2.1"
+ },
+ {
+  "chunk_id": "OEM-SPEC-3",
+  "collection": "oem_spec",
+  "source": "oem_spec/demo_oem_diagnostic_spec.md",
+  "title": "Demo OEM 3 Session transitions",
+  "text": "Demo OEM specification section 3 Session transitions. Allowed transitions: default -> extended, extended -> programming, any session ->\ndefault, extended -> extended. A direct transition from the default session to the\nprogramming session is rejected with NRC 0x22 conditionsNotCorrect (Demo OEM rule; the\ntester must enter the extended session first). Every session change locks all security\nlevels again.",
+  "version": "2.1"
+ },
+ {
+  "chunk_id": "OEM-SPEC-4",
+  "collection": "oem_spec",
+  "source": "oem_spec/demo_oem_diagnostic_spec.md",
+  "title": "Demo OEM 4 Security access policy",
+  "text": "Demo OEM specification section 4 Security access policy. Level 1 (sub-functions 0x01 / 0x02) is the \"extended\" level and is only available in the\nextended session. Level 3 (sub-functions 0x03 / 0x04) is the \"programming\" level and is\nonly available in the programming session. Seeds and keys are 4 bytes long.\n\nDemo key algorithm (for bench use only, not secret): key = seed XOR 0x5A3C96E1 for level 1\nand key = seed XOR 0xA5C3691E for level 3.\n\nFailed attempts: after 3 consecutive invalid keys the ECU answers the third invalid key\nwith NRC 0x36 exceededNumberOfAttempts and then refuses seed requests with NRC 0x37 for a\ndelay of 10 s. A valid key resets the attempt counter.",
+  "version": "2.1"
+ },
+ {
+  "chunk_id": "OEM-SPEC-5",
+  "collection": "oem_spec",
+  "source": "oem_spec/demo_oem_diagnostic_spec.md",
+  "title": "Demo OEM 5 Negative response preferences",
+  "text": "Demo OEM specification section 5 Negative response preferences. Demo OEM ECUs follow the generic NRC order with these clarifications:\n- A known DID that is not readable or writable in the active session returns NRC 0x31,\n  not 0x7F (0x7F is only used when the whole service is not allowed in the session).\n- A write to a read-only DID returns NRC 0x31.\n- A routine sub-function that the RID does not support returns NRC 0x12.\n- Conditions such as vehicle speed > 3 km/h during writes or routines return NRC 0x22.",
+  "version": "2.1"
+ },
+ {
+  "chunk_id": "OEM-SPEC-6",
+  "collection": "oem_spec",
+  "source": "oem_spec/demo_oem_diagnostic_spec.md",
+  "title": "Demo OEM 6 Data encoding rules",
+  "text": "Demo OEM specification section 6 Data encoding rules. Multi-byte values are big-endian. Text DIDs (VIN, part numbers, system name) are ASCII.\nPhysical values use the scaling given in the ECU extract (for example battery voltage in\n0.01 V steps, temperature with offset -40 degC).",
+  "version": "2.1"
+ },
+ {
+  "chunk_id": "OEM-SPEC-7",
+  "collection": "oem_spec",
+  "source": "oem_spec/demo_oem_diagnostic_spec.md",
+  "title": "Demo OEM 7 Test case conventions",
+  "text": "Demo OEM specification section 7 Test case conventions. 0xEac diagnostic requirement must be covered by at least one positive test and every\napplicable negative category: wrong session, security locked, wrong length, value out of\nrange and request sequence. Test cases must state preconditions (session, security level,\nvehicle state), the request bytes, the expected response bytes and the pass/fail\ncriterion. Only test cases approved by a diagnostic test engineer may be exported to the\nautomation framework.",
+  "version": "2.1"
+ },
+ {
+  "chunk_id": "OEM-SPEC-8",
+  "collection": "oem_spec",
+  "source": "oem_spec/demo_oem_diagnostic_spec.md",
+  "title": "Demo OEM 8 Bench safety",
+  "text": "Demo OEM specification section 8 Bench safety. Generated scripts are only executed on a HIL bench or bench ECU. ECUReset, routines that\nactuate loads (lamps, door locks) and memory erase must never be run in a vehicle without\nthe bench safety checklist being completed.",
+  "version": "2.1"
+ }
+]

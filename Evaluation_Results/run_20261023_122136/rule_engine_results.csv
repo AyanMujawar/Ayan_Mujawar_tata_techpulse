@@ -1,0 +1,21 @@
+id,request,state,given_response,label_valid,predicted_valid,correct,rule_expected,truth_expected,expected_match
+V01,22 F1 90,default unlocked=[],62 F1 90 57 44 45 4D 4F 30 42 43 4D 58 31 30 30 30 30 30 31,True,True,True,62 F1 90 57 44 45 4D 4F 30 42 43 4D 58 31 30 30 30 30 30 31,62 F1 90 57 44 45 4D 4F 30 42 43 4D 58 31 30 30 30 30 30 31,True
+V02,22 F1 90,default unlocked=[],62 F1 90 57 44,False,False,True,62 F1 90 57 44 45 4D 4F 30 42 43 4D 58 31 30 30 30 30 30 31,62 F1 90 57 44 45 4D 4F 30 42 43 4D 58 31 30 30 30 30 30 31,True
+V03,2E 4A 10,extended unlocked=[1],7F 2E 13,True,True,True,7F 2E 13,7F 2E 13,True
+V04,2E 4A 10 00 3C,default unlocked=[],6E 4A 10,False,False,True,7F 2E 7F,7F 2E 7F,True
+V05,2E 4A 10 00 3C,default unlocked=[],7F 2E 7F,True,True,True,7F 2E 7F,7F 2E 7F,True
+V06,2E 4A 10 00 3C,extended unlocked=[],7F 2E 33,True,True,True,7F 2E 33,7F 2E 33,True
+V07,2E 4A 10 00 3C,extended unlocked=[1],6E 4A 10,True,True,True,6E 4A 10,6E 4A 10,True
+V08,2E 4A 10 01 F5,extended unlocked=[1],6E 4A 10,False,False,True,7F 2E 31,7F 2E 31,True
+V09,27 02 00 00 00 00,extended unlocked=[],7F 27 24,True,True,True,7F 27 24,7F 27 24,True
+V10,27 01,default unlocked=[],67 01 11 22 33 44,False,False,True,7F 27 7F,7F 27 7F,True
+V11,10 02,default unlocked=[],50 02 00 32 01 F4,False,False,True,7F 10 22,7F 10 22,True
+V12,10 03,default unlocked=[],50 03 00 32 01 F4,True,True,True,50 03 00 32 01 F4,50 03 00 32 01 F4,True
+V13,3E 80,extended unlocked=[],,True,True,True,<none>,<none>,True
+V14,3E 00,extended unlocked=[],7E 00,True,True,True,7E 00,7E 00,True
+V15,22 4A 30,default unlocked=[],7F 22 31,True,True,True,7F 22 31,7F 22 31,True
+V16,22 4A 61,extended unlocked=[],62 4A 61 00,False,False,True,7F 22 33,7F 22 33,True
+V17,31 03 50 01,extended unlocked=[],7F 31 24,True,True,True,7F 31 24,7F 31 24,True
+V18,31 01 50 02,extended unlocked=[],71 01 50 02 00,False,False,True,7F 31 33,7F 31 33,True
+V19,14 FF FF FF,default unlocked=[],54,True,True,True,54,54,True
+V20,23 00 00,default unlocked=[],7F 23 11,True,True,True,7F 23 11,7F 23 11,True

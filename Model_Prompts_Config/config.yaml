@@ -1,0 +1,59 @@
+# UDS Diagnostics & Test Generation Assistant - runtime configuration
+# Every generated output stores llm.model and the prompt version for traceability.
+
+project:
+  name: UDS Diagnostics and Automated Test Generation Assistant
+  case_study: CS5
+  ecu: BCM-X1
+  version: 1.0.0
+
+paths:                       # relative to the project root
+  input_data: Input_Data
+  index_dir: Code/index      # FAISS indexes + BM25 corpora (rebuilt by build_index.py)
+  database: Code/uds_assist.db
+  prompts: Model_Prompts_Config/prompts
+  templates: Input_Data/templates
+  exports: Code/exports
+  evaluation: Evaluation_Results
+
+llm:
+  provider: ollama
+  base_url: http://localhost:11434
+  model: qwen3:4b            # Qwen3-4B, Q4_K_M quantised, Apache-2.0, served locally
+  temperature: 0.1
+  num_ctx: 4096             # prompts are < 3k tokens; 4096 lets the whole model fit on the 4 GB GPU
+  think: false               # disable Qwen3 reasoning traces so output is clean JSON
+  timeout_s: 180
+
+embeddings:
+  model: BAAI/bge-small-en-v1.5   # 384-dim, sentence-transformers, CPU
+  fallback_model: sentence-transformers/all-MiniLM-L6-v2
+  query_instruction: "Represent this sentence for searching relevant passages: "
+  normalize: true
+
+retrieval:
+  collections: [standard_uds, oem_spec, ecu_extract, project_reqs]
+  top_k: 6
+  per_list_k: 20             # candidates taken from each dense / BM25 list before fusion
+  rrf_k: 60                  # reciprocal-rank-fusion constant
+  chunk_tokens: 400
+  chunk_overlap: 60
+  max_per_collection: 3      # diversity cap inside the final top-k
+  min_dense_score: 0.55      # below this the question is treated as out of scope (off-topic ~0.42-0.47)
+
+prompts:
+  qa: qa_answer_v1.txt
+  scenario: scenario_plan_v1.txt
+
+generation:
+  categories: [positive, wrong_session, security_locked, wrong_length, out_of_range, sequence_error, invalid_key, unsupported_identifier, read_only_rejected]
+
+api:
+  host: 127.0.0.1
+  port: 8000
+
+ecu_bus:                     # used only by exported scripts (Demo OEM spec section 1)
+  tx_id: "0x7A0"
+  rx_id: "0x7A8"
+  interface: vector
+  channel: "0"

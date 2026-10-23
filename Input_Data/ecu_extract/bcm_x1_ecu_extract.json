@@ -1,0 +1,73 @@
+{
+  "document": "ECU-EXTRACT",
+  "ecu": "BCM-X1",
+  "description": "Diagnostic extract of the fictional Demo OEM Body Control Module BCM-X1 (synthetic).",
+  "version": "1.4",
+  "sessions": [
+    {"id": "0x01", "name": "default", "description": "Active after power-up and after any ECU reset."},
+    {"id": "0x02", "name": "programming", "description": "Used for flashing; only reachable from the extended session (Demo OEM rule)."},
+    {"id": "0x03", "name": "extended", "description": "Used for configuration, routines and protected writes."}
+  ],
+  "security_levels": [
+    {"level": 1, "seed_subfunction": "0x01", "key_subfunction": "0x02", "sessions": ["extended"], "seed_length": 4, "key_length": 4, "xor_constant": "0x5A3C96E1", "max_attempts": 3, "lockout_delay_s": 10},
+    {"level": 3, "seed_subfunction": "0x03", "key_subfunction": "0x04", "sessions": ["programming"], "seed_length": 4, "key_length": 4, "xor_constant": "0xA5C3691E", "max_attempts": 3, "lockout_delay_s": 10}
+  ],
+  "services": [
+    {"sid": "0x10", "name": "DiagnosticSessionControl", "sessions": ["default", "programming", "extended"], "subfunctions": ["0x01", "0x02", "0x03"]},
+    {"sid": "0x11", "name": "ECUReset", "sessions": ["default", "programming", "extended"], "subfunctions": ["0x01", "0x03"]},
+    {"sid": "0x14", "name": "ClearDiagnosticInformation", "sessions": ["default", "extended"], "dtc_groups": ["0xFFFFFF", "0x9A0000"]},
+    {"sid": "0x19", "name": "ReadDTCInformation", "sessions": ["default", "extended"], "subfunctions": ["0x01", "0x02", "0x0A"]},
+    {"sid": "0x22", "name": "ReadDataByIdentifier", "sessions": ["default", "programming", "extended"]},
+    {"sid": "0x27", "name": "SecurityAccess", "sessions": ["programming", "extended"], "subfunctions": ["0x01", "0x02", "0x03", "0x04"]},
+    {"sid": "0x28", "name": "CommunicationControl", "sessions": ["extended"], "subfunctions": ["0x00", "0x01", "0x03"]},
+    {"sid": "0x2E", "name": "WriteDataByIdentifier", "sessions": ["programming", "extended"]},
+    {"sid": "0x31", "name": "RoutineControl", "sessions": ["programming", "extended"], "subfunctions": ["0x01", "0x02", "0x03"]},
+    {"sid": "0x34", "name": "RequestDownload", "sessions": ["programming"], "security_level": 3},
+    {"sid": "0x36", "name": "TransferData", "sessions": ["programming"], "security_level": 3},
+    {"sid": "0x37", "name": "RequestTransferExit", "sessions": ["programming"], "security_level": 3},
+    {"sid": "0x3E", "name": "TesterPresent", "sessions": ["default", "programming", "extended"], "subfunctions": ["0x00"]},
+    {"sid": "0x85", "name": "ControlDTCSetting", "sessions": ["extended"], "subfunctions": ["0x01", "0x02"]}
+  ],
+  "dids": [
+    {"did": "0xF186", "name": "activeDiagnosticSession", "length": 1, "access": "R", "read_sessions": ["default", "programming", "extended"], "encoding": "uint", "default": 1, "note": "Returns the current session id (dynamic)."},
+    {"did": "0xF187", "name": "sparePartNumber", "length": 11, "access": "R", "read_sessions": ["default", "programming", "extended"], "encoding": "ascii", "default": "DM1234567AB"},
+    {"did": "0xF189", "name": "ecuSoftwareVersion", "length": 4, "access": "R", "read_sessions": ["default", "programming", "extended"], "encoding": "ascii", "default": "S210"},
+    {"did": "0xF18A", "name": "systemSupplierIdentifier", "length": 6, "access": "R", "read_sessions": ["default", "programming", "extended"], "encoding": "ascii", "default": "DEMOSP"},
+    {"did": "0xF18C", "name": "ecuSerialNumber", "alias": "serial number", "length": 10, "access": "R", "read_sessions": ["default", "programming", "extended"], "encoding": "ascii", "default": "BX10004711"},
+    {"did": "0xF190", "name": "vehicleIdentificationNumber", "alias": "VIN", "length": 17, "access": "R", "read_sessions": ["default", "programming", "extended"], "encoding": "ascii", "default": "WDEMO0BCMX1000001"},
+    {"did": "0xF191", "name": "ecuHardwareVersion", "length": 4, "access": "R", "read_sessions": ["default", "programming", "extended"], "encoding": "ascii", "default": "H030"},
+    {"did": "0xF195", "name": "supplierSoftwareVersion", "length": 4, "access": "R", "read_sessions": ["default", "programming", "extended"], "encoding": "ascii", "default": "V112"},
+    {"did": "0xF197", "name": "systemName", "length": 8, "access": "R", "read_sessions": ["default", "programming", "extended"], "encoding": "ascii", "default": "BCMX1BDY"},
+    {"did": "0xF199", "name": "programmingDate", "length": 4, "access": "RW", "read_sessions": ["default", "programming", "extended"], "write_sessions": ["programming"], "write_security": 3, "encoding": "bcd", "default": "20260901", "note": "YYYYMMDD in BCD."},
+    {"did": "0xF1A0", "name": "calibrationIdentifier", "length": 8, "access": "R", "read_sessions": ["default", "programming", "extended"], "encoding": "ascii", "default": "CAL00042"},
+    {"did": "0x4A10", "name": "interiorLightTimeout", "length": 2, "access": "RW", "read_sessions": ["default", "extended"], "write_sessions": ["extended"], "write_security": 1, "encoding": "uint", "unit": "s", "min": 5, "max": 300, "default": 60},
+    {"did": "0x4A11", "name": "autoLockSpeedThreshold", "length": 1, "access": "RW", "read_sessions": ["default", "extended"], "write_sessions": ["extended"], "write_security": 1, "encoding": "uint", "unit": "km/h", "min": 5, "max": 50, "default": 15},
+    {"did": "0x4A12", "name": "welcomeLightEnable", "length": 1, "access": "RW", "read_sessions": ["default", "extended"], "write_sessions": ["extended"], "write_security": null, "encoding": "enum", "min": 0, "max": 1, "default": 1, "values": {"0": "disabled", "1": "enabled"}},
+    {"did": "0x4A13", "name": "rearWiperInterval", "length": 1, "access": "RW", "read_sessions": ["default", "extended"], "write_sessions": ["extended"], "write_security": null, "encoding": "uint", "unit": "s", "min": 2, "max": 20, "default": 8},
+    {"did": "0x4A20", "name": "batteryVoltage", "length": 2, "access": "R", "read_sessions": ["default", "extended"], "encoding": "uint", "scaling": "0.01 V per bit", "default": 1260},
+    {"did": "0x4A21", "name": "ambientTemperature", "length": 1, "access": "R", "read_sessions": ["default", "extended"], "encoding": "uint", "scaling": "1 degC per bit, offset -40", "default": 62},
+    {"did": "0x4A22", "name": "doorStatus", "length": 1, "access": "R", "read_sessions": ["default", "extended"], "encoding": "bitfield", "default": 0, "values": {"bit0": "driver door open", "bit1": "passenger door open", "bit2": "rear left open", "bit3": "rear right open", "bit4": "tailgate open"}},
+    {"did": "0x4A23", "name": "ignitionState", "length": 1, "access": "R", "read_sessions": ["default", "extended"], "encoding": "enum", "default": 2, "values": {"0": "off", "1": "accessory", "2": "on", "3": "crank"}},
+    {"did": "0x4A30", "name": "lampOutputState", "length": 2, "access": "R", "read_sessions": ["extended"], "encoding": "bitfield", "default": 0, "note": "Only readable in the extended session."},
+    {"did": "0x4A31", "name": "centralLockState", "length": 1, "access": "R", "read_sessions": ["default", "extended"], "encoding": "enum", "default": 1, "values": {"0": "unlocked", "1": "locked", "2": "double locked"}},
+    {"did": "0x4A40", "name": "variantCoding", "length": 4, "access": "RW", "read_sessions": ["extended"], "write_sessions": ["extended"], "write_security": 1, "encoding": "raw", "default": "0102000F"},
+    {"did": "0x4A41", "name": "marketRegion", "length": 1, "access": "RW", "read_sessions": ["default", "extended"], "write_sessions": ["extended"], "write_security": 1, "encoding": "enum", "min": 0, "max": 4, "default": 1, "values": {"0": "EU", "1": "India", "2": "North America", "3": "China", "4": "Rest of world"}},
+    {"did": "0x4A50", "name": "odometerAtLastDtc", "length": 3, "access": "R", "read_sessions": ["default", "extended"], "encoding": "uint", "unit": "km", "default": 12345},
+    {"did": "0x4A51", "name": "crashUnlockEnable", "length": 1, "access": "RW", "read_sessions": ["default", "extended"], "write_sessions": ["extended"], "write_security": 1, "encoding": "enum", "min": 0, "max": 1, "default": 1},
+    {"did": "0x4A60", "name": "learnedKeyFobCount", "length": 1, "access": "R", "read_sessions": ["default", "extended"], "encoding": "uint", "default": 2},
+    {"did": "0x4A61", "name": "immobiliserStatus", "length": 1, "access": "R", "read_sessions": ["extended"], "read_security": 1, "encoding": "enum", "default": 0, "values": {"0": "armed", "1": "disarmed"}, "note": "Reading requires extended session and security level 1."}
+  ],
+  "rids": [
+    {"rid": "0x0203", "name": "checkProgrammingPreconditions", "sessions": ["programming"], "security": null, "subfunctions": ["0x01", "0x03"], "result": "00", "note": "Result 00 = preconditions OK."},
+    {"rid": "0xFF00", "name": "eraseMemory", "sessions": ["programming"], "security": 3, "subfunctions": ["0x01", "0x03"], "result": "00"},
+    {"rid": "0xFF01", "name": "checkProgrammingDependencies", "sessions": ["programming"], "security": 3, "subfunctions": ["0x01", "0x03"], "result": "00"},
+    {"rid": "0x5001", "name": "lampSelfTest", "sessions": ["extended"], "security": null, "subfunctions": ["0x01", "0x02", "0x03"], "result": "00", "note": "Cycles all exterior lamps; bench only."},
+    {"rid": "0x5002", "name": "doorLockActuatorTest", "sessions": ["extended"], "security": 1, "subfunctions": ["0x01", "0x02", "0x03"], "result": "00", "note": "Actuates all door locks; bench only."},
+    {"rid": "0x5003", "name": "resetLearnedKeyFobs", "sessions": ["extended"], "security": 1, "subfunctions": ["0x01"], "result": "00"}
+  ],
+  "dtcs": [
+    {"dtc": "0x9A1011", "name": "Interior lamp circuit short to ground", "status": "0x09"},
+    {"dtc": "0x9A2012", "name": "Driver door lock actuator open circuit", "status": "0x08"},
+    {"dtc": "0xC14087", "name": "Lost communication with gateway", "status": "0x2F"}
+  ]
+}

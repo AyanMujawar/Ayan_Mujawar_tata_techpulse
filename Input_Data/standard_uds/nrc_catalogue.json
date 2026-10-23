@@ -1,0 +1,22 @@
+{
+  "document": "STD-NRC",
+  "version": "1.0",
+  "description": "Common UDS negative response codes (synthetic catalogue, own wording).",
+  "nrcs": [
+    {"code": "0x10", "name": "generalReject", "meaning": "The ECU rejects the request for a reason not covered by a more specific code."},
+    {"code": "0x11", "name": "serviceNotSupported", "meaning": "The service identifier is not implemented in this ECU."},
+    {"code": "0x12", "name": "subFunctionNotSupported", "meaning": "The service exists but the requested sub-function does not."},
+    {"code": "0x13", "name": "incorrectMessageLengthOrInvalidFormat", "meaning": "The request length or structure does not match the service definition, e.g. a write with a missing data byte."},
+    {"code": "0x21", "name": "busyRepeatRequest", "meaning": "The ECU is temporarily busy; the tester should repeat the request later."},
+    {"code": "0x22", "name": "conditionsNotCorrect", "meaning": "A precondition outside the protocol is not met, e.g. vehicle speed not zero or a forbidden session transition."},
+    {"code": "0x24", "name": "requestSequenceError", "meaning": "The request arrived in the wrong order, e.g. a SecurityAccess key without a preceding seed request, or a routine stop before start."},
+    {"code": "0x31", "name": "requestOutOfRange", "meaning": "An identifier or parameter is not supported or out of range, e.g. an unknown DID or a write value outside limits."},
+    {"code": "0x33", "name": "securityAccessDenied", "meaning": "The request needs an unlocked security level that is currently locked."},
+    {"code": "0x35", "name": "invalidKey", "meaning": "The key sent with SecurityAccess does not match the expected key for the seed."},
+    {"code": "0x36", "name": "exceededNumberOfAttempts", "meaning": "Too many invalid keys were sent; the security level is blocked."},
+    {"code": "0x37", "name": "requiredTimeDelayNotExpired", "meaning": "A new seed was requested before the lockout delay after failed attempts expired."},
+    {"code": "0x78", "name": "requestCorrectlyReceivedResponsePending", "meaning": "The ECU needs more time; the final response follows within P2* server max."},
+    {"code": "0x7E", "name": "subFunctionNotSupportedInActiveSession", "meaning": "The sub-function exists but is not allowed in the current diagnostic session."},
+    {"code": "0x7F", "name": "serviceNotSupportedInActiveSession", "meaning": "The service exists but is not allowed in the current diagnostic session, e.g. WriteDataByIdentifier in the default session."}
+  ]
+}
