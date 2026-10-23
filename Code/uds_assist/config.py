@@ -3,7 +3,6 @@ from __future__ import annotations
 
 import functools
 import json
-import os
 from pathlib import Path
 
 import yaml
@@ -14,10 +13,7 @@ ROOT = Path(__file__).resolve().parents[2]  # project root (folder that holds Co
 @functools.lru_cache(maxsize=1)
 def load_config() -> dict:
     with open(ROOT / "Model_Prompts_Config" / "config.yaml", encoding="utf-8") as fh:
-        cfg = yaml.safe_load(fh)
-    if os.environ.get("OLLAMA_URL"):  # docker-compose points the app at the ollama service
-        cfg["llm"]["base_url"] = os.environ["OLLAMA_URL"]
-    return cfg
+        return yaml.safe_load(fh)
 
 
 def path(key: str) -> Path:

@@ -22,7 +22,7 @@ deterministic rule engine**, **generates positive and negative test cases**, kee
 | `Model_Prompts_Config/` | `config.yaml` (model, embeddings, retrieval, paths), versioned prompts, model card |
 | `Evaluation_Results/` | Ground-truth sets, per-run metrics/CSVs/sample outputs, `EVALUATION_SUMMARY.md` |
 | `Documentation/` | Technical report (updated with measured results) and UI screenshots |
-| `Video/` | Demo video `CS5_Approach_Video_Ayan_Mujawar_123B1B196.mp4` and its script |
+| `Video/` | Demo video `CS5_Approach_Video_Ayan_Mujawar_123B1B196.mp4` |
 | `Declarations/` | AI-tool usage and student declaration |
 
 ## Architecture
@@ -73,8 +73,6 @@ Streamlit UI (localhost:8501)            FastAPI (127.0.0.1:8000, /docs)
    python -m pytest -q                                   # 22 unit tests
    python evaluate.py                                    # full evaluation (or --no-llm)
    ```
-   Docker alternative: `docker compose up --build` (api, ui, ollama services; written for
-   reproducibility but not executed for this submission).
 
 **External dependencies (declared):** internet is needed only once, to download the Python
 packages, the Ollama model `qwen3:4b` and the embedding model. At run time the system is
